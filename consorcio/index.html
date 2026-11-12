@@ -29,7 +29,7 @@ h2 i,h1 i{color:var(--gold);font-weight:600}
 .lead{font-size:clamp(17px,2vw,19px);color:var(--txt);max-width:560px}
 .dark{background:var(--navy);color:#fff}
 .dark .lead,.dark p{color:var(--ink)}
-section{padding:96px 0}
+section{padding:96px 0;scroll-margin-top:68px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-weight:800;font-size:16px;border-radius:12px;padding:17px 26px;border:0;cursor:pointer;font-family:inherit;transition:transform .12s,filter .12s}
 .btn:active{transform:scale(.98)}
 .btn-y{background:var(--y);color:var(--navy)}.btn-y:hover{filter:brightness(1.05)}
@@ -134,10 +134,28 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 footer a{color:var(--ink)}
 .float{position:fixed;right:18px;bottom:18px;z-index:20;width:58px;height:58px;border-radius:50%;background:var(--y);color:var(--navy);display:grid;place-items:center;box-shadow:0 10px 26px rgba(0,0,0,.25)}
 .float svg{width:28px;height:28px}
+
+.faixa{display:block;background:var(--y);color:var(--navy);text-decoration:none;font-weight:800;font-size:15px;text-align:center;padding:11px 18px;line-height:1.35}
+.faixa u{text-decoration:none;background:var(--navy);color:var(--y);padding:4px 12px;border-radius:999px;margin-left:10px;white-space:nowrap;font-size:13px}
+.deep{background:var(--deep);color:#fff}.deep .lead,.deep p{color:var(--ink)}.deep .ey{color:var(--y)}.deep h2 i{color:var(--y)}
+.why{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:40px 0 34px;border-top:1px solid var(--line)}
+.why div{padding:24px 22px 0 0;margin-right:22px;border-right:1px solid var(--line)}.why div:last-child{border-right:0;margin-right:0}
+.why b{display:block;font-family:"Playfair Display",Georgia,serif;font-size:22px;color:#fff;margin-bottom:6px}
+.why span{font-size:14px;color:var(--ink)}
+.obs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.ob{background:var(--navy);border:1px solid var(--line);border-radius:20px;padding:24px 22px;text-decoration:none;color:#fff;display:flex;flex-direction:column;transition:border-color .15s,transform .15s}
+.ob:hover{border-color:var(--y);transform:translateY(-2px)}
+.oi{width:56px;height:56px;border-radius:50%;background:var(--y);color:var(--navy);display:grid;place-items:center}.oi svg{width:30px;height:30px}
+.ob h3{font-size:24px;margin:18px 0 8px}
+.ob p{font-size:14px;margin:0;flex:1}
+.og{margin-top:18px;color:var(--y);font-weight:800;font-size:14px}
+@media(max-width:960px){.why{grid-template-columns:1fr 1fr}.why div{border-right:0;margin-right:0;padding-right:12px}.obs{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.why{grid-template-columns:1fr}.obs{grid-template-columns:1fr}.faixa{font-size:14px}.faixa u{display:inline-block;margin:6px 0 0}}
 </style>
 </head>
 <body>
 
+<a class="faixa" href="#outros-bens">Não é só jet: também faço consórcio de carro, moto, quadriciclo, imóvel, energia solar e muito mais. <u>Ver opções ↓</u></a>
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#inicio"><img src="../midia/site/logo-tc.webp" alt="">Tudo Consórcios</a>
@@ -146,6 +164,7 @@ footer a{color:var(--ink)}
       <a href="#ja-tenho-jet">Já tenho jet</a>
       <a href="#primeiro-jet">Primeiro jet</a>
       <a href="#como-funciona">Como funciona</a>
+      <a href="#outros-bens">Outros bens</a>
       <a href="#duvidas">Dúvidas</a>
     </nav>
     <a class="btn btn-y" href="#simular">Simular</a>
@@ -275,8 +294,10 @@ footer a{color:var(--ink)}
           <label class="chip"><input type="radio" name="caminho" value="zero" checked><span>Jet zero</span></label>
           <label class="chip"><input type="radio" name="caminho" value="troca"><span>Já tenho jet</span></label>
           <label class="chip"><input type="radio" name="caminho" value="lancha"><span>Lancha</span></label>
+          <label class="chip"><input type="radio" name="caminho" value="outro"><span>Outro bem</span></label>
         </div>
       </div>
+      <div class="field" id="outro-box" style="display:none"><label for="qual">Qual bem?</label><input id="qual" name="qual" placeholder="Ex.: carro, moto, energia solar, gerador"></div>
       <div class="field" id="vender-box"><label for="atual">Modelo e ano do jet que você vai vender</label><input id="atual" name="atual" placeholder="Ex.: GTI 130, 2021"></div>
       <div class="field"><label for="valor">Valor aproximado do crédito</label><input id="valor" name="valor" inputmode="numeric" placeholder="Ex.: R$ 120.000"></div>
       <div class="field"><label for="prazo">Prazo que você prefere</label>
@@ -293,6 +314,22 @@ footer a{color:var(--ink)}
   </div>
 </section>
 
+<section id="outros-bens" class="deep">
+  <div class="wrap">
+    <p class="ey">Outros bens</p>
+    <h2>O crédito é seu. <i>Use no que o banco não financia.</i></h2>
+    <p class="lead" style="margin-top:18px">Consórcio não é “de jet”: é uma carta de crédito. A administradora deixa você usar esse crédito para comprar vários tipos de bem, inclusive os que os bancos normalmente não financiam.</p>
+    <div class="why">
+      <div><b>Compra à vista</b><span>Com a carta de crédito na mão, você negocia como quem paga à vista.</span></div>
+      <div><b>Paga a prazo</b><span>As parcelas seguem planejadas, sem tirar tudo da conta de uma vez.</span></div>
+      <div><b>Sem usar o cartão</b><span>O limite do cartão de crédito fica livre para o dia a dia.</span></div>
+      <div><b>Onde o fornecedor não parcela</b><span>Gerador, energia solar, máquinas: quando ninguém parcela em 60 vezes, o consórcio parcela.</span></div>
+    </div>
+    <div class="obs"><a class="ob" href="https://wa.me/5586994320794?text=Oi%2C%20Romel%21%20Vim%20pelo%20site%20e%20quero%20simular%20um%20cons%C3%B3rcio%20para%20um%20carro." target="_blank" rel="noopener"><span class="oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13l2-5a2 2 0 0 1 1.9-1.4h10.2A2 2 0 0 1 19 8l2 5v4a1 1 0 0 1-1 1h-1.5"/><path d="M5.5 18H4a1 1 0 0 1-1-1v-4h18"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="16.5" cy="17.5" r="1.8"/></svg></span><h3>Carro</h3><p>Novo ou seminovo de até 12 anos de fabricação. E vale a mesma estratégia do jet: venda o atual e use o dinheiro como lance.</p><span class="og">Simular carro →</span></a><a class="ob" href="https://wa.me/5586994320794?text=Oi%2C%20Romel%21%20Vim%20pelo%20site%20e%20quero%20simular%20um%20cons%C3%B3rcio%20para%20uma%20moto." target="_blank" rel="noopener"><span class="oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5.5" cy="16.5" r="3"/><circle cx="18.5" cy="16.5" r="3"/><path d="M5.5 16.5l4-6h5l4 6"/><path d="M14.5 10.5l-1.5-4H16"/></svg></span><h3>Moto</h3><p>Nova ou seminova de até 5 anos de fabricação. Ótimo para motos de alto valor.</p><span class="og">Simular moto →</span></a><a class="ob" href="https://wa.me/5586994320794?text=Oi%2C%20Romel%21%20Vim%20pelo%20site%20e%20quero%20simular%20um%20cons%C3%B3rcio%20para%20um%20im%C3%B3vel." target="_blank" rel="noopener"><span class="oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span><h3>Imóvel</h3><p>O uso tradicional: casa, apartamento ou terreno, para morar ou para investir.</p><span class="og">Simular imóvel →</span></a><a class="ob" href="https://wa.me/5586994320794?text=Oi%2C%20Romel%21%20Vim%20pelo%20site%20e%20quero%20simular%20um%20cons%C3%B3rcio%20para%20energia%20solar." target="_blank" rel="noopener"><span class="oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="10" width="18" height="9" rx="1"/><path d="M3 14.5h18M9 10v9M15 10v9"/><path d="M12 2v2M6.3 4.3l1.4 1.4M17.7 4.3l-1.4 1.4"/></svg></span><h3>Energia solar</h3><p>O sistema completo para a sua casa, empresa ou fazenda, pago em parcelas planejadas.</p><span class="og">Simular energia solar →</span></a><a class="ob" href="https://wa.me/5586994320794?text=Oi%2C%20Romel%21%20Vim%20pelo%20site%20e%20quero%20simular%20um%20cons%C3%B3rcio%20para%20um%20motor%20gerador." target="_blank" rel="noopener"><span class="oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="11" rx="1.5"/><path d="M7 18v2M17 18v2"/><path d="M12.5 9.5l-2 3h3l-2 3"/></svg></span><h3>Motor gerador</h3><p>O fornecedor não parcela um gerador de R$ 80 mil em 60 vezes? O consórcio parcela.</p><span class="og">Simular gerador →</span></a><a class="ob" href="https://wa.me/5586994320794?text=Oi%2C%20Romel%21%20Vim%20pelo%20site%20e%20quero%20simular%20um%20cons%C3%B3rcio%20para%20trator%20ou%20implemento%20agr%C3%ADcola." target="_blank" rel="noopener"><span class="oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="7" cy="16" r="4"/><circle cx="18" cy="17" r="2.5"/><path d="M11 16h4.5M4 12V6h6l2 6h6v3"/></svg></span><h3>Trator e implementos</h3><p>Trator e alguns implementos agrícolas, para quem produz e não quer descapitalizar.</p><span class="og">Simular trator e implementos →</span></a><a class="ob" href="https://wa.me/5586994320794?text=Oi%2C%20Romel%21%20Vim%20pelo%20site%20e%20quero%20simular%20um%20cons%C3%B3rcio%20para%20equipamento%20hospitalar%20ou%20industrial." target="_blank" rel="noopener"><span class="oi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/><path d="M7 10h2.5l1.5-3 2 6 1.5-3H17"/></svg></span><h3>Equipamentos</h3><p>Equipamentos hospitalares e industriais para quem precisa investir no próprio negócio.</p><span class="og">Simular equipamentos →</span></a><a class="ob" href="#simular" data-caminho="outro" style="background:transparent;border-style:dashed"><span class="oi" style="background:transparent;border:1.5px solid var(--y);color:var(--y)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span><h3>Outro bem</h3><p>Precisa de algo que não está aqui? Me conta o que é, e eu confirmo se o crédito pode ser usado nele.</p><span class="og">Perguntar →</span></a></div>
+    <p class="small" style="margin-top:22px;color:#8E99BF">Todos pelo BB Consórcios, via Consórcios Digital, e sempre dentro das regras da administradora para cada tipo de bem. Mesma lógica do jet: taxa de administração no lugar dos juros, contemplação por sorteio ou por lance.</p>
+  </div>
+</section>
+
 <section id="duvidas">
   <div class="wrap">
     <p class="ey">Dúvidas</p>
@@ -303,6 +340,7 @@ footer a{color:var(--ink)}
       <details><summary>O que é lance?</summary><p>É uma oferta que você faz para antecipar a contemplação, usando recursos próprios. O maior lance da assembleia leva. Se o seu não for o vencedor, o dinheiro continua com você.</p></details>
       <details><summary>Posso dar o meu jet atual como entrada?</summary><p>Não. O consórcio não recebe o jet como entrada nem como pagamento. O caminho é vender o seu jet atual e usar o dinheiro da venda como lance no consórcio do novo.</p></details>
       <details><summary>Posso comprar um jet seminovo?</summary><p>Pode, dentro das regras do BB Consórcios para idade e condição do jet. É um ótimo jeito de entrar na náutica com um crédito menor. Na simulação eu confirmo o que vale para o modelo que você quer.</p></details>
+      <details><summary>Dá para usar o consórcio em outras coisas além de jet?</summary><p>Dá. O consórcio é uma carta de crédito, e o BB Consórcios permite usar esse crédito em vários tipos de bem: carro novo ou seminovo de até 12 anos de fabricação, moto nova ou seminova de até 5 anos, imóvel, energia solar, motor gerador, trator, alguns implementos agrícolas e equipamentos hospitalares e industriais, sempre dentro das regras da administradora.</p></details>
       <details><summary>Quem administra o consórcio?</summary><p>O BB Consórcios. Eu atuo como consultor autônomo pela Consórcios Digital, representante autorizado BB Consórcios, e te acompanho da simulação até a contemplação.</p></details>
       <details><summary>Vale a pena para quem já tem o dinheiro?</summary><p>Muita gente que poderia pagar à vista prefere o consórcio para não descapitalizar: o dinheiro segue rendendo enquanto você paga as parcelas. Vale comparar os dois cenários na simulação.</p></details>
     </div>
@@ -331,19 +369,20 @@ footer a{color:var(--ink)}
 <script>
 (function(){
   var f=document.getElementById('f'), box=document.getElementById('vender-box'), valor=document.getElementById('valor');
-  function sync(){box.style.display=f.caminho.value==='troca'?'block':'none';}
+  function sync(){box.style.display=f.caminho.value==='troca'?'block':'none';document.getElementById('outro-box').style.display=f.caminho.value==='outro'?'block':'none';}
   f.addEventListener('change',sync);
   document.querySelectorAll('[data-caminho]').forEach(function(a){
     a.addEventListener('click',function(){var r=f.querySelector('input[name=caminho][value="'+a.dataset.caminho+'"]');if(r){r.checked=true;sync();}});
   });
   valor.addEventListener('input',function(){var d=valor.value.replace(/\D/g,'').slice(0,9);valor.value=d?'R$ '+Number(d).toLocaleString('pt-BR'):'';});
-  var nomes={primeiro:'meu primeiro jet (seminovo)',zero:'um jet zero',troca:'trocar o meu jet (vender e usar o dinheiro como lance)',lancha:'uma lancha'};
+  var nomes={primeiro:'meu primeiro jet (seminovo)',zero:'um jet zero',troca:'trocar o meu jet (vender e usar o dinheiro como lance)',lancha:'uma lancha',outro:'outro bem'};
   f.addEventListener('submit',function(e){
     e.preventDefault();
     var c=f.caminho.value, l=['Oi, Romel! Vim pelo site e quero simular um consórcio.'];
     if(f.nome.value.trim()) l.push('Nome: '+f.nome.value.trim());
     l.push('Meu momento: '+nomes[c]);
     if(c==='troca'&&f.atual.value.trim()) l.push('Jet que vou vender: '+f.atual.value.trim());
+    if(c==='outro'&&f.qual.value.trim()) l.push('Bem: '+f.qual.value.trim());
     l.push('Crédito aproximado: '+(valor.value.trim()||'ainda não sei'));
     l.push('Prazo: '+f.prazo.value);
     var url='https://wa.me/5586994320794?text='+encodeURIComponent(l.join('\n'));
