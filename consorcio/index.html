@@ -221,10 +221,10 @@ footer a{color:var(--ink)}
       <ol>
         <li>Você entra no consórcio do jet novo.</li>
         <li>Vende o seu jet atual.</li>
-        <li>Usa esse valor como lance nas assembleias.</li>
+        <li>Usa o dinheiro da venda como lance nas assembleias.</li>
         <li>Contemplado, a carta de crédito paga o jet novo.</li>
       </ol>
-      <p class="muted" style="font-size:14px">Lance não garante contemplação: ele concorre com os lances dos outros participantes do grupo.</p>
+      <p class="muted" style="font-size:14px">O consórcio não aceita o jet como entrada: o lance é feito em dinheiro, com o valor da venda. E lance não garante contemplação, ele concorre com os lances dos outros participantes do grupo.</p>
       <a class="btn btn-y" href="#simular" style="margin-top:10px">Simular a minha troca</a>
     </div>
     <img src="../midia/site/jet-azul.jpg" alt="Jet ski azul em destaque">
@@ -266,14 +266,14 @@ footer a{color:var(--ink)}
         </select>
       </div>
       <div class="field">
-        <label>Já tem jet para usar na troca?</label>
+        <label>Tem um jet para vender e usar o valor como lance?</label>
         <div class="chips">
           <label class="chip"><input type="radio" name="troca" value="nao" checked><span>Não</span></label>
           <label class="chip"><input type="radio" name="troca" value="sim"><span>Sim</span></label>
         </div>
       </div>
       <div class="field" id="troca-box">
-        <label for="atual">Modelo e ano do seu jet atual</label>
+        <label for="atual">Modelo e ano do jet que você vai vender</label>
         <input id="atual" name="atual" placeholder="Ex.: GTI 130, 2021">
       </div>
       <button class="btn btn-y" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.8 7L4 20l1.1-4.6A8 8 0 1 1 21 12z"/></svg>Enviar no WhatsApp</button>
@@ -290,7 +290,7 @@ footer a{color:var(--ink)}
       <details><summary>Consórcio tem custo?</summary><p>Tem. Em vez dos juros de um financiamento, o consórcio cobra a taxa de administração, diluída nas parcelas, e, conforme o grupo, fundo de reserva e seguro. Na simulação eu te mostro todos esses valores antes de você decidir.</p></details>
       <details><summary>Quando eu recebo o jet?</summary><p>Quando for contemplado, por sorteio ou por lance, nas assembleias mensais do grupo. Não existe data garantida, e quem promete contemplação está prometendo o que não pode cumprir. O que dá para fazer é planejar o lance para aumentar as chances.</p></details>
       <details><summary>O que é lance?</summary><p>É uma oferta que você faz para antecipar a contemplação, usando recursos próprios. O maior lance da assembleia leva. Ele aumenta suas chances, mas não é garantia.</p></details>
-      <details><summary>Posso usar o meu jet atual na compra do novo?</summary><p>Pode, de forma indireta: você vende o seu jet atual e usa o valor como lance no consórcio do novo. Assim não precisa ter o valor do jet novo inteiro na mão.</p></details>
+      <details><summary>Posso dar o meu jet atual como entrada?</summary><p>Não. O consórcio não recebe o jet como entrada nem como pagamento. O caminho é vender o seu jet atual e usar o dinheiro da venda como lance no consórcio do novo. Assim você não precisa ter o valor do jet novo inteiro na mão.</p></details>
       <details><summary>Quem administra o consórcio?</summary><p>O BB Consórcios. Eu atuo como consultor autônomo pela Consórcios Digital, representante autorizado BB Consórcios, e te acompanho do início da simulação até a contemplação.</p></details>
       <details><summary>Vale a pena para quem já tem o dinheiro?</summary><p>Muita gente que poderia pagar à vista prefere o consórcio para não descapitalizar: o dinheiro segue rendendo enquanto você paga as parcelas. Vale comparar os dois cenários na simulação.</p></details>
       <details><summary>O atendimento é só em Teresina?</summary><p>Não. O atendimento é feito pelo WhatsApp, então dá para simular e acompanhar tudo de onde você estiver.</p></details>
@@ -333,7 +333,7 @@ footer a{color:var(--ink)}
     linhas.push('Quero: '+bem);
     linhas.push('Crédito aproximado: '+(v||'ainda não sei'));
     linhas.push('Prazo: '+prazo);
-    if(f.troca.value==='sim'){var a=f.atual.value.trim();linhas.push('Tenho jet para a troca'+(a?': '+a:''));}
+    if(f.troca.value==='sim'){var a=f.atual.value.trim();linhas.push('Tenho um jet para vender e usar o valor como lance'+(a?': '+a:''));}
     var url='https://wa.me/5586994320794?text='+encodeURIComponent(linhas.join('\n'));
     window.open(url,'_blank','noopener')||(location.href=url);
   });
